@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 @RestController
@@ -19,6 +20,19 @@ public class InvestmentController {
 
 
     @GetMapping
+    public Collection<Object> getAllInvestmentsAndTotalValue() {
+        double val = investmentService.getTotalInvestmentAmount();
+        Collection<Investment> investments = investmentService.getAllInvestments();
+        Collection<Object> res = new ArrayList<Object>();
+        res.add(val);
+        res.add(investments);
+        return res;
+    }
+
+    public double getCashTotal() {
+        return investmentService.getTotalInvestmentAmount();
+    }
+
     public Collection<Investment> getAllInvestments() {
 
         Investment investmentId3 = investmentService.getInvestmentById(3);
