@@ -17,4 +17,41 @@ public class InvestmentServiceImpl implements InvestmentService {
     public Collection<Investment> getAllInvestments() {
         return investmentRepository.findAll();
     }
+
+    @Override
+    public Investment getInvestmentById(Integer id) {
+        return null;
+    }
+
+    @Override
+    public Investment getInvestmentByTicker(String ticker) {
+        return null;
+    }
+
+    @Override
+    public void deleteInvestmentById(Integer id) {
+
+    }
+
+    @Override
+    public void deleteInvestmentByTicker(String ticker) {
+
+    }
+
+    @Override
+    public void updateInvestment(Investment investment) {
+
+    }
+
+    @Override
+    public void addNewInvestment(Investment investment) {
+
+    }
+
+    @Override
+    public Integer getTotalInvestmentAmount() {
+        return null;
+    }
+
+
 }

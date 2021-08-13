@@ -5,5 +5,17 @@ import com.citi.training.PortfolioManager.entities.Investment;
 import java.util.Collection;
 
 public interface InvestmentService {
+
     Collection<Investment> getAllInvestments();
+
+    Investment getInvestmentById(Integer id);
+    Investment getInvestmentByTicker(String ticker);
+
+    void deleteInvestmentById(Integer id);
+    void deleteInvestmentByTicker(String ticker);
+
+    void updateInvestment(Investment investment);
+    void addNewInvestment(Investment investment);
+
+    Integer getTotalInvestmentAmount();
 }
