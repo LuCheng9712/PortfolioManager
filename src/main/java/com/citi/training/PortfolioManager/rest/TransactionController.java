@@ -19,7 +19,7 @@ public class TransactionController {
 
 
     @GetMapping
-    public Collection<Transaction> getAllInvestments() {
+    public Collection<Transaction> getAllTransactions() {
         return transactionService.getAllTransactions();
     }
 
