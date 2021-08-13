@@ -12,6 +12,8 @@ public class Investment implements Serializable {
     @Column(name="id")
     private int id;
 
+    @Column(name="ticker")
+    private String ticker;
     @Column(name="name")
     private String name;
     @Column(name="type")
@@ -27,6 +29,14 @@ public class Investment implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getTicker() {
+        return ticker;
+    }
+
+    public void setTicker(String ticker) {
+        this.ticker = ticker;
     }
 
     public String getName() {
