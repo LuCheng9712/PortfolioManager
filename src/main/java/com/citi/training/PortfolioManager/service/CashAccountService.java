@@ -10,7 +10,7 @@ public interface CashAccountService {
     CashAccount getAccountByName(String name);
     void deleteAccountById(Integer id);
     void deleteAccountByName(String name);
-    void addAccount(String name);
+    void addAccount(CashAccount cashAccount);
     void depositById(Integer id, Double amount);
     void depositByName(String name, Double amount);
     void withdrawById(Integer id, Double amount);

@@ -20,6 +20,10 @@ public class CashAccountController {
 
     @GetMapping
     public Collection<CashAccount> getAllCashAccounts() {
+        CashAccount cashAccount = new CashAccount();
+        cashAccount.setAmount(4444);
+        cashAccount.setName("Added Account");
+        cashAccountService.addAccount(cashAccount);
         return cashAccountService.getAllCashAccounts();
     }
 

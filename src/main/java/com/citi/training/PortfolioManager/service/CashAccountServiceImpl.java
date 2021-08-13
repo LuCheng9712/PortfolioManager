@@ -40,7 +40,9 @@ public class CashAccountServiceImpl implements CashAccountService {
     }
 
     @Override
-    public void addAccount(String name) {
+    public void addAccount(CashAccount cashAccount) {
+        cashAccount.setId(0);
+        cashAccountRepository.save(cashAccount);
 
     }
 
