@@ -16,7 +16,7 @@ public interface InvestmentService {
     void deleteInvestmentByTicker(String ticker);
     void deleteInvestment(Investment investment);
 
-    void updateInvestment(Transaction transaction);
+    void updateInvestment(Investment investment);
     void addNewInvestment(Investment investment);
 
     Integer getTotalInvestmentAmount();

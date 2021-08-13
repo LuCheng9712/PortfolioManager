@@ -20,6 +20,18 @@ public class InvestmentController {
 
     @GetMapping
     public Collection<Investment> getAllInvestments() {
+
+        Investment investmentId3 = investmentService.getInvestmentById(3);
+        Investment AAPL = investmentService.getInvestmentByTicker("AAPL");
+
+        investmentService.deleteInvestmentById(1);
+        investmentService.deleteInvestmentByTicker("GOOGL");
+        investmentService.deleteInvestment(investmentId3);
+        investmentService.deleteInvestment(AAPL);
+
+        Investment AMD = new Investment(1, "AMD", "Advanced Micro Devices, Inc.", "stock", 34, 110.55);
+        investmentService.addNewInvestment(AMD);
+
         return investmentService.getAllInvestments();
     }
 

@@ -23,6 +23,18 @@ public class Investment implements Serializable {
     @Column(name="average_purchase_price")
     private double avgPurchasePrice;
 
+    public Investment() {
+    }
+
+    public Investment(int id, String ticker, String name, String type, int quantity, double avgPurchasePrice) {
+        this.id = id;
+        this.ticker = ticker;
+        this.name = name;
+        this.type = type;
+        this.quantity = quantity;
+        this.avgPurchasePrice = avgPurchasePrice;
+    }
+
     public int getId() {
         return id;
     }

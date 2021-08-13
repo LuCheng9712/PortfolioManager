@@ -58,7 +58,7 @@ CREATE TABLE `investments` (
   `average_purchase_price` double NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +67,7 @@ CREATE TABLE `investments` (
 
 LOCK TABLES `investments` WRITE;
 /*!40000 ALTER TABLE `investments` DISABLE KEYS */;
-INSERT INTO `investments` VALUES (1,'','tesla','stock',1,200);
+INSERT INTO `investments` VALUES (1,'TSLA','Tesla Inc','stock',1,716.37),(2,'GOOGL','Alphabet Inc Class A','stock',10,2750.6),(3,'AMZN','Amazon.com Inc.','stock',7,3285.91),(4,'AAPL','Apple Inc','stock',13,149.02),(5,'FB','Facebook, Inc. Common Stock','stock',20,363.18);
 /*!40000 ALTER TABLE `investments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-13 18:56:39
+-- Dump completed on 2021-08-13 20:16:12
