@@ -36,7 +36,7 @@ public class CashAccountServiceImpl implements CashAccountService {
 
     @Override
     public void deleteAccountByName(String name) {
-
+        cashAccountRepository.delete(cashAccountRepository.findByName(name).stream().findFirst().get());
     }
 
     @Override
@@ -48,26 +48,34 @@ public class CashAccountServiceImpl implements CashAccountService {
 
     @Override
     public void depositById(Integer id, Double amount) {
-
+        cashAccountRepository.findById(id).get().setAmount(cashAccountRepository.findById(id).get().getAmount()+amount);
+        cashAccountRepository.save(cashAccountRepository.findById(id).get());
     }
 
     @Override
     public void depositByName(String name, Double amount) {
-
+        cashAccountRepository.findByName(name).stream().findFirst().get().setAmount(cashAccountRepository.findByName(name).stream().findFirst().get().getAmount()+amount);
+        cashAccountRepository.save(cashAccountRepository.findByName(name).stream().findFirst().get());
     }
 
     @Override
     public void withdrawById(Integer id, Double amount) {
-
+        cashAccountRepository.findById(id).get().setAmount(cashAccountRepository.findById(id).get().getAmount()-amount);
+        cashAccountRepository.save(cashAccountRepository.findById(id).get());
     }
 
     @Override
     public void withdrawByName(String name, Double amount) {
-
+        cashAccountRepository.findByName(name).stream().findFirst().get().setAmount(cashAccountRepository.findByName(name).stream().findFirst().get().getAmount()-amount);
+        cashAccountRepository.save(cashAccountRepository.findByName(name).stream().findFirst().get());
     }
 
     @Override
     public double getTotalCash() {
-        return 100; //placeholder
+        double total = 0;
+        for(CashAccount cashAccount : getAllCashAccounts()){
+            total+=cashAccount.getAmount();
+        }
+        return total;
     }
 }
