@@ -5,4 +5,15 @@ import java.util.Collection;
 
 public interface CashAccountService {
     Collection<CashAccount> getAllCashAccounts();
+
+    CashAccount getAccountById(Integer id);
+    CashAccount getAccountByName(String name);
+    void deleteAccountById(Integer id);
+    void deleteAccountByName(String name);
+    void addAccount(String name);
+    void depositById(Integer id, Double amount);
+    void depositByName(String name, Double amount);
+    void withdrawById(Integer id, Double amount);
+    void withdrawByName(String name, Double amount);
+    double getTotalCash();
 }
