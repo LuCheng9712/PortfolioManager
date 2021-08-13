@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Collection;
 
 @RestController
-@RequestMapping("/cashaccount")
+@RequestMapping("/cash_accounts")
 public class CashAccountController {
 
     @Autowired
@@ -22,7 +22,5 @@ public class CashAccountController {
     public Collection<CashAccount> getAllCashAccounts() {
         return cashAccountService.getAllCashAccounts();
     }
-
-
 
 }

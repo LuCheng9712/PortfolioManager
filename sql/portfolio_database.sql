@@ -1,6 +1,6 @@
 CREATE DATABASE  IF NOT EXISTS `portfolio_database` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `portfolio_database`;
--- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
 --
 -- Host: localhost    Database: portfolio_database
 -- ------------------------------------------------------
@@ -29,7 +29,7 @@ CREATE TABLE `cash_accounts` (
   `name` varchar(45) NOT NULL,
   `amount` double NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +38,7 @@ CREATE TABLE `cash_accounts` (
 
 LOCK TABLES `cash_accounts` WRITE;
 /*!40000 ALTER TABLE `cash_accounts` DISABLE KEYS */;
+INSERT INTO `cash_accounts` VALUES (1,'Citi Savings Account',2200),(2,'Citi Chequing Account',3600);
 /*!40000 ALTER TABLE `cash_accounts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-13 17:10:09
+-- Dump completed on 2021-08-13 18:56:39
