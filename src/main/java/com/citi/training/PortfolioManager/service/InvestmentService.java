@@ -19,5 +19,7 @@ public interface InvestmentService {
     void updateInvestment(Investment investment);
     void addNewInvestment(Investment investment);
 
-    Integer getTotalInvestmentAmount();
+    Double getInvestmentCurrentPrice(Investment investment);
+
+    Integer getTotalInvestmentValue();
 }

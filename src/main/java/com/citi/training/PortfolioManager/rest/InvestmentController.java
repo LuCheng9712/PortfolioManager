@@ -21,7 +21,7 @@ public class InvestmentController {
 
     @GetMapping
     public Collection<Object> getAllInvestmentsAndTotalValue() {
-        double val = investmentService.getTotalInvestmentAmount();
+        double val = investmentService.getTotalInvestmentValue();
         Collection<Investment> investments = investmentService.getAllInvestments();
         Collection<Object> res = new ArrayList<Object>();
         res.add(val);
@@ -30,7 +30,7 @@ public class InvestmentController {
     }
 
     public double getCashTotal() {
-        return investmentService.getTotalInvestmentAmount();
+        return investmentService.getTotalInvestmentValue();
     }
 
     public Collection<Investment> getAllInvestments() {
@@ -48,7 +48,4 @@ public class InvestmentController {
 
         return investmentService.getAllInvestments();
     }
-
-
-
 }
