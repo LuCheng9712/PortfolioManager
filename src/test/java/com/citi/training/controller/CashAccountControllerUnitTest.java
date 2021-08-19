@@ -4,6 +4,8 @@ import com.citi.training.PortfolioManager.entities.CashAccount;
 import com.citi.training.PortfolioManager.repo.CashAccountRepository;
 import com.citi.training.PortfolioManager.rest.CashAccountController;
 import com.citi.training.PortfolioManager.service.CashAccountService;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestConfiguration;
@@ -13,7 +15,11 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.hamcrest.Matchers.equalTo;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -47,5 +53,12 @@ public class CashAccountControllerUnitTest {
         public CashAccountController controller() {
             return new CashAccountController();
         }
+    }
+
+    @Test
+    public void testFindAll() {
+        Iterable<CashAccount> cashaccs = controller.getAllCashAccounts();
+        Stream<CashAccount> stream = StreamSupport.stream(cashaccs.spliterator(), false);
+        Assertions.assertEquals(stream.count(), 1L);
     }
 }
