@@ -21,5 +21,5 @@ public interface InvestmentService {
 
     Double getInvestmentCurrentPrice(Investment investment);
 
-    Integer getTotalInvestmentValue();
+    Double getTotalInvestmentValue();
 }

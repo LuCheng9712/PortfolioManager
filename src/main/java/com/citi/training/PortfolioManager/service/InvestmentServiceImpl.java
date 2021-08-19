@@ -73,9 +73,9 @@ public class InvestmentServiceImpl implements InvestmentService {
     }
 
     @Override
-    public Integer getTotalInvestmentValue() {
+    public Double getTotalInvestmentValue() {
         Collection<Investment> allInvestments = investmentRepository.findAll();
-        int total = 0;
+        double total = 0;
         for (Investment investment: allInvestments) {
             total += getInvestmentCurrentPrice(investment);
         }
