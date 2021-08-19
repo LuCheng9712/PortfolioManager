@@ -2,20 +2,20 @@ package com.citi.training.PortfolioManager.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name="transactions")
-public class Transaction implements Serializable {
+public class  Transaction implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
-
     @Column(name="time")
-    private String name;
+    private LocalDateTime time;
     @Column(name="account_id")
-    private Integer account_id;
+    private Integer account;
     @Column(name="type")
     private String type;
     @Column(name="quantity")
@@ -31,20 +31,12 @@ public class Transaction implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Integer getAccount_id() {
-        return account_id;
+        return account;
     }
 
     public void setAccount_id(Integer account_id) {
-        this.account_id = account_id;
+        this.account = account;
     }
 
     public String getType() {
@@ -69,5 +61,13 @@ public class Transaction implements Serializable {
 
     public void setAmount(Double amount) {
         this.amount = amount;
+    }
+
+    public LocalDateTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalDateTime time) {
+        this.time = time;
     }
 }
