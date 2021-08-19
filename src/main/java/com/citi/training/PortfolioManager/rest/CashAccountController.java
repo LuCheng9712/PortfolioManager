@@ -4,9 +4,7 @@ package com.citi.training.PortfolioManager.rest;
 import com.citi.training.PortfolioManager.entities.CashAccount;
 import com.citi.training.PortfolioManager.service.CashAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -22,4 +20,20 @@ public class CashAccountController {
     public Collection<CashAccount> getAllCashAccounts() {
         return cashAccountService.getAllCashAccounts();
     }
+
+    @GetMapping(value = "/get_total")
+    public double getTotalCash () {
+        return cashAccountService.getTotalCash();
+    }
+
+    @GetMapping(value = "/{id}")
+    public CashAccount findById(@PathVariable("id") int id) {
+        return cashAccountService.getAccountById(id);
+    }
+
+    @PostMapping(consumes="application/json")
+    public void addCashAccount(@RequestBody CashAccount cashAccount) {
+        cashAccountService.addAccount(cashAccount);
+    }
+
 }
