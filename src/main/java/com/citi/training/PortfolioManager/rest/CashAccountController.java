@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/cash_accounts")
 public class CashAccountController {
 
