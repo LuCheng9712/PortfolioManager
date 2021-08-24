@@ -2,12 +2,13 @@ package com.citi.training.PortfolioManager.service;
 
 import com.citi.training.PortfolioManager.entities.Transaction;
 import com.citi.training.PortfolioManager.repo.TransactionRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.Date;
 
 @Service
 public class TransactionServiceImpl implements TransactionService {
@@ -21,13 +22,15 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public Transaction getTransactionById(Integer id) {
-        return transactionRepository.getById(id);
+        return transactionRepository.findById(id).get();
     }
 
+    //further implementation and test needed
     @Override
     public Collection<Transaction> getTransactionByPeriod(LocalDateTime start, LocalDateTime end) {
         return transactionRepository.findAllByTimeBetween(start, end);
     }
+
 
     @Override
     public Collection<Transaction> getTransactionByAccount(Integer account) {

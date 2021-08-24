@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -25,6 +26,20 @@ public class TransactionController {
         return transactionService.getAllTransactions();
     }
 
+    @GetMapping(value = "id/{id}")
+    public Transaction getTransactionById(@PathVariable("id") int id) {
+        return transactionService.getTransactionById(id);
+    }
+
+    @GetMapping(value = "account/{account}")
+    public Collection<Transaction> getTransactionByAccount(@PathVariable("account") int account) {
+        return transactionService.getTransactionByAccount(account);
+    }
+    
+    @PostMapping
+    public void addTramsaction(@RequestBody Transaction transaction) {
+        transactionService.addNewTransaction(transaction);
+    }
 
 
 }
