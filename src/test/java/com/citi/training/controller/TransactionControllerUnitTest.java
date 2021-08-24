@@ -2,7 +2,6 @@ package com.citi.training.controller;
 
 import com.citi.training.PortfolioManager.entities.Transaction;
 import com.citi.training.PortfolioManager.repo.TransactionRepository;
-import com.citi.training.PortfolioManager.rest.InvestmentController;
 import com.citi.training.PortfolioManager.rest.TransactionController;
 import com.citi.training.PortfolioManager.service.TransactionService;
 import org.junit.jupiter.api.Assertions;
@@ -37,7 +36,13 @@ public class TransactionControllerUnitTest {
 
     @TestConfiguration
     protected static class Config {
+        
         @Bean
+        @Primary
+        public TransactionController controller() {
+            return new TransactionController();
+        }
+
         @Primary
         public TransactionRepository repo() {
             return mock(TransactionRepository.class);
@@ -56,12 +61,6 @@ public class TransactionControllerUnitTest {
             when(service.getTransactionByAccount(1)).thenReturn(transactions);
             
             return service;
-        }
-
-        @Bean
-        @Primary
-        public InvestmentController controller() {
-            return new InvestmentController();
         }
 
     }
