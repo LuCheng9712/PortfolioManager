@@ -32,7 +32,7 @@ public class CashAccountController {
         return cashAccountService.getAccountById(id);
     }
 
-    @PostMapping(consumes="application/json")
+    @PostMapping(value="/addaccount", consumes="application/json")
     public void addCashAccount(@RequestBody CashAccount cashAccount) {
         cashAccountService.addAccount(cashAccount);
     }
