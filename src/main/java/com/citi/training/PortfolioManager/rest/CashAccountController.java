@@ -37,4 +37,9 @@ public class CashAccountController {
         cashAccountService.addAccount(cashAccount);
     }
 
+    @DeleteMapping(value= "/deletebyid/{id}")
+    public void deleteAccountById(@PathVariable("id") int id){
+        cashAccountService.deleteAccountById(id);
+    }
+
 }
