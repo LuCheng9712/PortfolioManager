@@ -109,7 +109,7 @@ public class InvestmentServiceImpl implements InvestmentService {
     @Override
     public String getStockName(String ticker) {
         try {
-            return YahooFinance.get(ticker).getName();
+            return YahooFinance.get(ticker).getName().toString();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -119,7 +119,7 @@ public class InvestmentServiceImpl implements InvestmentService {
     @Override
     public String getStockCurrency(String ticker){
         try {
-            return YahooFinance.get(ticker).getCurrency();
+            return YahooFinance.get(ticker).getCurrency().toString();
         } catch (IOException e) {
             e.printStackTrace();
         }
