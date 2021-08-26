@@ -47,4 +47,9 @@ public class CashAccountController {
         cashAccountService.depositById(cashAccount.getId(), deposit);
     }
 
+    @PostMapping(value= "/withdraw/{withdraw}", consumes="application/json")
+    public void withdrawById(@PathVariable("withdraw") double withdraw, @RequestBody CashAccount cashAccount) {
+        cashAccountService.withdrawById(cashAccount.getId(), withdraw);
+    }
+
 }
