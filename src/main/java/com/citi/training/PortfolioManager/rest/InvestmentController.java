@@ -48,13 +48,13 @@ public class InvestmentController {
     }
 
     @PostMapping(value="/add_investment", consumes="application/json")
-    public void updateInvestment(@RequestBody Investment investment) {
-        investmentService.updateInvestment(investment);
+    public void addInvestment(@RequestBody Investment investment) {
+        investmentService.addNewInvestment(investment);
     }
 
     @PutMapping(value="/update_investment/{id}", consumes="application/json")
-    public void addInvestment(@RequestBody Investment investment) {
-        investmentService.addNewInvestment(investment);
+    public void updateInvestment(@RequestBody Investment investment) {
+        investmentService.updateInvestment(investment);
     }
 
     @GetMapping(value = "/get_current_price/id/{id}")
