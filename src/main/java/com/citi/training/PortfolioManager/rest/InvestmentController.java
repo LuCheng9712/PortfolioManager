@@ -60,13 +60,12 @@ public class InvestmentController {
     @GetMapping(value = "/get_current_price/id/{id}")
     public Double getCurrentPriceById(@PathVariable("id") Integer id) {
         Investment investment = investmentService.getInvestmentById(id);
-        return investmentService.getInvestmentCurrentPrice(investment);
+        return investmentService.getInvestmentCurrentPrice(investment.getTicker());
     }
 
     @GetMapping("/get_current_price/ticker/{ticker}")
     public Double getCurrentPriceByTicker(@PathVariable("ticker") String ticker) {
-        Investment investment = investmentService.getInvestmentByTicker(ticker);
-        return investmentService.getInvestmentCurrentPrice(investment);
+        return investmentService.getInvestmentCurrentPrice(ticker);
     }
 
     @GetMapping(value = "/get_current_total_value")

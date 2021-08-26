@@ -62,8 +62,7 @@ public class InvestmentServiceImpl implements InvestmentService {
     }
 
     @Override
-    public Double getInvestmentCurrentPrice(Investment investment) {
-        String ticker = investment.getTicker();
+    public Double getInvestmentCurrentPrice(String ticker) {
         try {
             return YahooFinance.get(ticker).getQuote().getPrice().doubleValue();
         } catch (IOException e) {
@@ -77,7 +76,7 @@ public class InvestmentServiceImpl implements InvestmentService {
         Collection<Investment> allInvestments = investmentRepository.findAll();
         double total = 0;
         for (Investment investment: allInvestments) {
-            total += getInvestmentCurrentPrice(investment);
+            total += getInvestmentCurrentPrice(investment.getTicker());
         }
         return total;
     }

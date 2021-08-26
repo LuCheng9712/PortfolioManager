@@ -19,7 +19,7 @@ public interface InvestmentService {
     void updateInvestment(Investment investment);
     void addNewInvestment(Investment investment);
 
-    Double getInvestmentCurrentPrice(Investment investment);
+    Double getInvestmentCurrentPrice(String ticker);
 
     Double getTotalInvestmentValue();
 }
