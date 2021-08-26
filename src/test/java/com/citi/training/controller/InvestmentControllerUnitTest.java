@@ -44,7 +44,9 @@ public class InvestmentControllerUnitTest {
             InvestmentService service = mock(InvestmentService.class);
             when(service.getAllInvestments()).thenReturn(investments);
             when(service.getInvestmentById(1)).thenReturn(investment);
-            when(service.getInvestmentByTicker("AAPL")).thenReturn(null);
+            when(service.getInvestmentById(2)).thenReturn(null);
+            when(service.getInvestmentByTicker("AAPL")).thenReturn(investment);
+            when(service.getInvestmentByTicker("AAAA")).thenReturn(null);
             return service;
         }
 
@@ -59,14 +61,14 @@ public class InvestmentControllerUnitTest {
     private InvestmentController controller;
 
     @Test
-    public void testFindAll() {
+    public void testGetAllInvestments() {
         Iterable<Investment> cds = controller.getAllInvestments();
         Stream<Investment> stream = StreamSupport.stream(cds.spliterator(), false);
         Assertions.assertEquals(stream.count(), 1L);
     }
 
     @Test
-    public void testGetInvestmentByID(Integer id) {
+    public void testGetInvestmentById(Integer id) {
 
     }
 }

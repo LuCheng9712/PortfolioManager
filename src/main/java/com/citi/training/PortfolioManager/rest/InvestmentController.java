@@ -32,12 +32,12 @@ public class InvestmentController {
         return investmentService.getInvestmentByTicker(ticker);
     }
 
-    @DeleteMapping(value ="/id/{id}")
+    @DeleteMapping(value ="/delete_investment/id/{id}")
     public void deleteInvestmentById(@PathVariable("id") Integer id) {
         investmentService.deleteInvestmentById(id);
     }
 
-    @DeleteMapping("/ticker/{ticker}")
+    @DeleteMapping("/delete_investment/ticker/{ticker}")
     public void deleteInvestmentByTicker(@PathVariable("ticker") String ticker) {
         investmentService.deleteInvestmentByTicker(ticker);
     }
@@ -47,12 +47,12 @@ public class InvestmentController {
         investmentService.deleteInvestment(investment);
     }
 
-    @PutMapping
+    @PostMapping(value="/add_investment", consumes="application/json")
     public void updateInvestment(@RequestBody Investment investment) {
         investmentService.updateInvestment(investment);
     }
 
-    @PostMapping
+    @PutMapping(value="/update_investment/{id}", consumes="application/json")
     public void addInvestment(@RequestBody Investment investment) {
         investmentService.addNewInvestment(investment);
     }
