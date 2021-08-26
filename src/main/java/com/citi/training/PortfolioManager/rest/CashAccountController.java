@@ -43,7 +43,7 @@ public class CashAccountController {
     }
 
     @PostMapping(value= "/deposit/{deposit}", consumes="application/json")
-    public void depositById(@PathVariable("deopsit") double deposit, @RequestBody CashAccount cashAccount) {
+    public void depositById(@PathVariable("deposit") double deposit, @RequestBody CashAccount cashAccount) {
         cashAccountService.depositById(cashAccount.getId(), deposit);
     }
 
