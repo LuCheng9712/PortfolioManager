@@ -53,7 +53,7 @@ public class InvestmentController {
         investmentService.addNewInvestment(investment);
     }
 
-    @PutMapping(value="/update_investment/{id}", consumes="application/json")
+    @PutMapping(value="/update_investment", consumes="application/json")
     public void updateInvestment(@RequestBody Investment investment) {
         investmentService.updateInvestment(investment);
     }
@@ -70,7 +70,7 @@ public class InvestmentController {
     }
 
     @GetMapping(value = "/get_current_total_value")
-    public Double getTotalInvesmentValue() {
+    public Double getTotalInvestmentValue() {
         return investmentService.getTotalInvestmentValue();
     }
 
