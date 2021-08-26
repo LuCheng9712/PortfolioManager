@@ -42,6 +42,11 @@ public class CashAccountController {
         cashAccountService.deleteAccountById(id);
     }
 
+    @DeleteMapping(value= "/deletebyname/{name}")
+    public void deleteAccountByName(@PathVariable("name") String name){
+        cashAccountService.deleteAccountByName(name);
+    }
+
     @PostMapping(value= "/deposit/{deposit}", consumes="application/json")
     public void depositById(@PathVariable("deposit") double deposit, @RequestBody CashAccount cashAccount) {
         cashAccountService.depositById(cashAccount.getId(), deposit);
