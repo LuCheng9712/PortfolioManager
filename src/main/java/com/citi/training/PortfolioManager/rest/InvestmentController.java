@@ -72,4 +72,22 @@ public class InvestmentController {
     public Double getTotalInvesmentValue() {
         return investmentService.getTotalInvestmentValue();
     }
+
+    // routing for stock info
+
+    @GetMapping(value = "/get_stock_price/{ticker}")
+    public Double getStockPrice(@PathVariable("ticker") String ticker) {
+        return investmentService.getStockCurrentPrice(ticker);
+    }
+
+    @GetMapping(value = "/get_stock_change/{ticker}")
+    public Double getStockChangeInPercent(@PathVariable("ticker") String ticker) {
+        return investmentService.getStockChangeInPercent(ticker);
+    }
+
+    @GetMapping(value = "/get_stock_dividend/{ticker}")
+    public Double getStockDividend(@PathVariable("ticker") String ticker) {
+        return investmentService.getStockDividend(ticker);
+    }
+
 }

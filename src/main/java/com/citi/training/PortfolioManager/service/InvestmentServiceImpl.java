@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import yahoofinance.YahooFinance;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -65,6 +66,37 @@ public class InvestmentServiceImpl implements InvestmentService {
     public Double getInvestmentCurrentPrice(String ticker) {
         try {
             return YahooFinance.get(ticker).getQuote().getPrice().doubleValue();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public Double getStockCurrentPrice(String ticker) {
+        try {
+            return YahooFinance.get(ticker).getQuote().getPrice().doubleValue();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public Double getStockChangeInPercent(String ticker) {
+        try {
+            return YahooFinance.get(ticker).getQuote().getChangeInPercent().doubleValue();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    @Override
+    public Double getStockDividend(String ticker) {
+        try {
+            return YahooFinance.get(ticker).getDividend().getAnnualYieldPercent().doubleValue();
         } catch (IOException e) {
             e.printStackTrace();
         }

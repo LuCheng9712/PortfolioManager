@@ -21,5 +21,9 @@ public interface InvestmentService {
 
     Double getInvestmentCurrentPrice(String ticker);
 
+    Double getStockCurrentPrice(String ticker);
+    Double getStockChangeInPercent(String ticker);
+    Double getStockDividend(String ticker);
+
     Double getTotalInvestmentValue();
 }
