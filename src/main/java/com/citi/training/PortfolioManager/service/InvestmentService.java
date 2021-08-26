@@ -3,6 +3,7 @@ package com.citi.training.PortfolioManager.service;
 import com.citi.training.PortfolioManager.entities.Investment;
 import com.citi.training.PortfolioManager.entities.Transaction;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 
 public interface InvestmentService {
@@ -24,6 +25,10 @@ public interface InvestmentService {
     Double getStockCurrentPrice(String ticker);
     Double getStockChangeInPercent(String ticker);
     Double getStockDividend(String ticker);
+    Object getStock(String ticker);
+    String getStockName(String ticker);
+    String getStockCurrency(String ticker);
+    Object getStockHistory(String ticker);
 
     Double getTotalInvestmentValue();
 }

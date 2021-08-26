@@ -2,12 +2,16 @@ package com.citi.training.PortfolioManager.service;
 
 import com.citi.training.PortfolioManager.entities.Investment;
 import com.citi.training.PortfolioManager.repo.InvestmentRepository;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators.None;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import yahoofinance.YahooFinance;
+import yahoofinance.histquotes.Interval;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -92,11 +96,53 @@ public class InvestmentServiceImpl implements InvestmentService {
         return null;
     }
 
-
     @Override
     public Double getStockDividend(String ticker) {
         try {
             return YahooFinance.get(ticker).getDividend().getAnnualYieldPercent().doubleValue();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public String getStockName(String ticker) {
+        try {
+            return YahooFinance.get(ticker).getName();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public String getStockCurrency(String ticker){
+        try {
+            return YahooFinance.get(ticker).getCurrency();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public Object getStockHistory(String ticker) {
+        Calendar from = Calendar.getInstance();
+        Calendar to = Calendar.getInstance();
+        from.add(Calendar.YEAR, -1);
+        try {
+            return YahooFinance.get(ticker).getHistory(from, to, Interval.DAILY);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }    
+
+    @Override
+    public Object getStock(String ticker) {
+        try {
+            return YahooFinance.get(ticker);
         } catch (IOException e) {
             e.printStackTrace();
         }

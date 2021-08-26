@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 
 @RestController
@@ -88,6 +89,26 @@ public class InvestmentController {
     @GetMapping(value = "/get_stock_dividend/{ticker}")
     public Double getStockDividend(@PathVariable("ticker") String ticker) {
         return investmentService.getStockDividend(ticker);
+    }
+
+    @GetMapping(value = "/get_stock/{ticker}")
+    public Object getStockPeg(@PathVariable("ticker") String ticker) {
+        return investmentService.getStock(ticker);
+    }
+
+    @GetMapping(value = "/get_stock_name/{ticker}")
+    public Object getStockName(@PathVariable("ticker") String ticker) {
+        return investmentService.getStockName(ticker);
+    }
+
+    @GetMapping(value = "/get_stock_currency/{ticker}")
+    public Object getStockCurrency(@PathVariable("ticker") String ticker) {
+        return investmentService.getStockCurrency(ticker);
+    }
+
+    @GetMapping(value = "/get_stock_history/{ticker}")
+    public Object getStockHistory(@PathVariable("ticker") String ticker) {
+        return investmentService.getStockHistory(ticker);
     }
 
 }

@@ -10,6 +10,4 @@ public class PortfolioManagerApplication {
 		SpringApplication.run(PortfolioManagerApplication.class, args);
 	}
 
-
-
 }
